@@ -17,7 +17,7 @@ public class WorkdayActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView lvLeftMenu;
-    private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
+    private String[] lvs = {"计算工作日", "查询到期日", "概述"};
     private ArrayAdapter arrayAdapter;
     private ImageView ivRunningMan;
 
@@ -26,11 +26,13 @@ public class WorkdayActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workday);
         findViews(); //获取控件
-        toolbar.setTitle("Toolbar");//设置Toolbar标题
+        toolbar.setTitle(getString(R.string.app_name));//设置Toolbar标题
         toolbar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         //创建返回键，并实现打开关/闭监听
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close) {
             @Override
@@ -48,6 +50,7 @@ public class WorkdayActivity extends ActionBarActivity {
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
         lvLeftMenu.setAdapter(arrayAdapter);
     }
+
 
 
     private void findViews() {
